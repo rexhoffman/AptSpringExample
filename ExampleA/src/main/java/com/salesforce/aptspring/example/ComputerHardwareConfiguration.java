@@ -48,17 +48,17 @@ public class ComputerHardwareConfiguration {
     return root1;
   }
   
-  @Bean("drive_items")
-  public List<ItemType> getHardDriveTypes(@Qualifier("drives_ssd") ItemType ssd,
-      @Qualifier("drives_platters") ItemType mechanical) {
-    return Collections.unmodifiableList(Arrays.asList(ssd, mechanical));
-  }
-  
   @Bean("drives")
   public ItemType getStorage(@Qualifier("drive_items") List<ItemType> driveItems, @Qualifier("valueBean") String bean) {
     ItemType drives = new ItemType("Storage");
     driveItems.stream().forEach(item -> drives.addSubType(item));
     return drives;
+  }
+  
+  @Bean("drive_items")
+  public List<ItemType> getHardDriveTypes(@Qualifier("drives_ssd") ItemType ssd,
+      @Qualifier("drives_platters") ItemType mechanical) {
+    return Collections.unmodifiableList(Arrays.asList(ssd, mechanical));
   }
   
   @Bean("drives_ssd")

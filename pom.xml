@@ -14,7 +14,7 @@
         <junit.version>4.12</junit.version>
         <plugin.maven.takari.compilerId>jdt</plugin.maven.takari.compilerId>
         <plugin.maven.takari.proc>proc</plugin.maven.takari.proc>
-        <plugin.maven.takari.version>1.13.2-SNAPSHOT</plugin.maven.takari.version>
+        <plugin.maven.takari.version>1.13.2</plugin.maven.takari.version>
         <spring.version>4.3.10.RELEASE</spring.version>
         <unreleased>true</unreleased>
         <java.version>1.8</java.version>
