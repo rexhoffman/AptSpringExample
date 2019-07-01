@@ -32,13 +32,11 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 
 import com.salesforce.aptspring.Verified;
 import com.salesforce.aptspring.example.objects.ItemType;
 
 @Verified(expectedBeans = {"valueBean"})
-@Configuration
 public class ComputerHardwareConfiguration {
 
   @Bean("hardware_root")
@@ -49,7 +47,7 @@ public class ComputerHardwareConfiguration {
   }
   
   @Bean("drives")
-  public ItemType getStorage(@Qualifier("drive_items") List<ItemType> driveItems, @Qualifier("valueBean") String bean) {
+  public ItemType getStorage(@Qualifier("drive_items") List<ItemType> driveItems, @SuppressWarnings("unused") @Qualifier("valueBean") String bean) {
     ItemType drives = new ItemType("Storage");
     driveItems.stream().forEach(item -> drives.addSubType(item));
     return drives;
